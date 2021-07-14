@@ -26,4 +26,7 @@ public class Part {
     @JoinColumn(name = "instrument_id", nullable = false)
     private Instrument instrument;
 
+    @Column(name = "sort_order", nullable = false)
+    private Integer sortOrder;
+
 }

@@ -22,9 +22,6 @@ public class Instrument {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "sort_order", nullable = false)
-    private Long sortOrder;
-
     @ManyToOne()
     @JoinColumn(name = "inst_classification_classification_id")
     private InstClassification instClassification;

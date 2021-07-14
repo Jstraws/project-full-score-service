@@ -29,6 +29,6 @@ public class InstrumentServiceImpl implements InstrumentService {
 
     @Override
     public List<Instrument> getAllInstruments() {
-        return instrumentRepo.findAll(Sort.by("sortOrder"));
+        return instrumentRepo.findAll(Sort.by("name"));
     }
 }
