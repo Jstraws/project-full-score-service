@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: project-full-score-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    user:
+      name: admin
+      password: thisIsAPass3215
+
