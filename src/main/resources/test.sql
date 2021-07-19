@@ -16,4 +16,14 @@ VALUES (900, 'Cello', 2),
        (906, 'Clarinet in A', 0),
        (907, 'Timpani', 3);
 
+/*------------------------------------------------------------------*/
+
+INSERT INTO ensemble (ensemble_id, name)
+VALUES (900, 'Wind Ensemble'),
+       (901, 'String Orchestra'),
+       (902, 'Symphony Orchestra'),
+       (903, 'String Quartet'),
+       (904, 'Solo Work');
+
+
 

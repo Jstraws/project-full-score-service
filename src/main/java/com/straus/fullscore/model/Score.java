@@ -25,7 +25,7 @@ public class Score {
     @Column(name = "arranger")
     private String arranger;
 
-    @OrderBy("instrument.name")
+    @OrderBy("sortOrder")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "score_score_id")
     private List<Part> parts;
