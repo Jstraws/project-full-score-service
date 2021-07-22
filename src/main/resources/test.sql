@@ -25,5 +25,10 @@ VALUES (900, 'Wind Ensemble'),
        (903, 'String Quartet'),
        (904, 'Solo Work');
 
+/*------------------------------------------------------------------*/
 
+INSERT INTO app_user (uuid)
+VALUES ('5m5yuH8TDXevxhhnNH4sQsFjSeq2'),
+       ('TXoHKbGknvVFd0JjTrXnb6Ur9xm1'),
+       ('E2chYGqcL8Nx73IjeEYZRqQktE62');
 

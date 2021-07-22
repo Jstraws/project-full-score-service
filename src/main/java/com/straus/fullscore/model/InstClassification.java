@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Setter
 public class InstClassification {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CLASSIFICATION_ID_SEQ_GEN")
+    @SequenceGenerator(name = "CLASSIFICATION_ID_SEQ_GEN", sequenceName = "CLASSIFICATION_ID_SEQ", allocationSize = 1)
     @Column(name = "classification_id", nullable = false)
     private Long id;
 

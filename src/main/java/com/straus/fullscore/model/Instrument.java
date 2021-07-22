@@ -15,7 +15,8 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 public class Instrument {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "INSTRUMENT_ID_SEQ_GEN")
+    @SequenceGenerator(name = "INSTRUMENT_ID_SEQ_GEN", sequenceName = "INSTRUMENT_ID_SEQ", allocationSize = 1)
     @Column(name = "instrument_id", nullable = false)
     private Long id;
 
