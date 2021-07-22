@@ -19,4 +19,12 @@ public interface ScoreService {
      * @return The updated score
      */
     Score updateScore(Score score);
+
+    /**
+     * Method to find all scores created by a specific user
+     *
+     * @param uuid The uuid of the user to filter by
+     * @return The list of scores belonging to that user
+     */
+    List<Score> findScoresByUser(String uuid);
 }

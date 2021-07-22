@@ -19,12 +19,6 @@ public class Score {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "composer")
-    private String composer;
-
-    @Column(name = "arranger")
-    private String arranger;
-
     @OrderBy("sortOrder")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "score_score_id")
@@ -33,5 +27,17 @@ public class Score {
     @ManyToOne()
     @JoinColumn(name = "ensemble_ensemble_id")
     private Ensemble ensemble;
+
+    @ManyToOne
+    @JoinColumn(name = "app_user_id")
+    private AppUser appUser;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "composer_id")
+    private Person composer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "arranger_id")
+    private Person arranger;
 
 }

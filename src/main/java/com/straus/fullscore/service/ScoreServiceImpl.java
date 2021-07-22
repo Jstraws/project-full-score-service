@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class ScoreServiceImpl implements ScoreService {
-    private ScoreRepository scoreRepository;
+    private final ScoreRepository scoreRepository;
 
     @Autowired
     public ScoreServiceImpl(ScoreRepository scoreRepository) {
@@ -24,7 +24,7 @@ public class ScoreServiceImpl implements ScoreService {
      */
     @Override
     public List<Score> getAllScores() {
-        return this.scoreRepository.findAll(Sort.by("title"));
+        return scoreRepository.findAll(Sort.by("title"));
     }
 
     /**
@@ -35,6 +35,17 @@ public class ScoreServiceImpl implements ScoreService {
      */
     @Override
     public Score updateScore(Score score) {
-        return this.scoreRepository.save(score);
+        return scoreRepository.save(score);
+    }
+
+    /**
+     * Method to find all scores created by a specific user
+     *
+     * @param uuid The uuid of the user to filter by
+     * @return The list of scores belonging to that user
+     */
+    @Override
+    public List<Score> findScoresByUser(String uuid) {
+        return scoreRepository.findByAppUser_UuidEquals(uuid);
     }
 }
