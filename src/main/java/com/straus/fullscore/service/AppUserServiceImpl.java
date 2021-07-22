@@ -22,7 +22,7 @@ public class AppUserServiceImpl implements AppUserService {
      */
     @Override
     public AppUser fetchUserByUuid(String uuid) {
-        return appUserRepository.findByUuidEquals(uuid).orElse(null);
+        return appUserRepository.findById(uuid).orElse(null);
     }
 
     /**

@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Setter
 public class Ensemble {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ENSEMBLE_ID_SEQ_GEN")
+    @SequenceGenerator(name = "ENSEMBLE_ID_SEQ_GEN", sequenceName = "ENSEMBLE_ID_SEQ", allocationSize = 1)
     @Column(name = "ensemble_id", nullable = false)
     private Long id;
 

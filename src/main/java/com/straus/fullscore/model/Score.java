@@ -12,7 +12,8 @@ import java.util.List;
 @Setter
 public class Score {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SCORE_ID_SEQ_GEN")
+    @SequenceGenerator(name = "SCORE_ID_SEQ_GEN", sequenceName = "SCORE_ID_SEQ", allocationSize = 1)
     @Column(name = "score_id", nullable = false)
     private Long id;
 
