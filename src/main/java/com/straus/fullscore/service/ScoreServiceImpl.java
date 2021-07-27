@@ -1,20 +1,25 @@
 package com.straus.fullscore.service;
 
+import com.straus.fullscore.model.Person;
 import com.straus.fullscore.model.Score;
+import com.straus.fullscore.repo.PersonRepository;
 import com.straus.fullscore.repo.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ScoreServiceImpl implements ScoreService {
     private final ScoreRepository scoreRepository;
+    private final PersonRepository personRepository;
 
     @Autowired
-    public ScoreServiceImpl(ScoreRepository scoreRepository) {
+    public ScoreServiceImpl(ScoreRepository scoreRepository, PersonRepository personRepository) {
         this.scoreRepository = scoreRepository;
+        this.personRepository = personRepository;
     }
 
     /**
@@ -35,6 +40,16 @@ public class ScoreServiceImpl implements ScoreService {
      */
     @Override
     public Score updateScore(Score score) {
+        // Check if composer already exists to prevent duplicates
+        Optional<Person> composer = personRepository.findByFullName(score.getComposer().getFirstName(), score.getComposer().getLastName());
+        composer.ifPresent(score::setComposer);
+
+        // Same for arranger
+        if (score.getArranger() != null) {
+            Optional<Person> arranger = personRepository.findByFullName(score.getArranger().getFirstName(), score.getArranger().getLastName());
+            arranger.ifPresent(score::setArranger);
+        }
+
         return scoreRepository.save(score);
     }
 

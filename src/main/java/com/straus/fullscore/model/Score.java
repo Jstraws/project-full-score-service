@@ -17,8 +17,12 @@ public class Score {
     @Column(name = "score_id", nullable = false)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
+
+    @Enumerated
+    @Column(name = "score_status", nullable = false)
+    private ScoreStatus scoreStatus;
 
     @OrderBy("sortOrder")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
