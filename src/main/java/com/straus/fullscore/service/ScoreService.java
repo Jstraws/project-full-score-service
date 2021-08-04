@@ -27,4 +27,11 @@ public interface ScoreService {
      * @return The list of scores belonging to that user
      */
     List<Score> findScoresByUser(String uuid);
+
+    /**
+     * Method to delete a score by its id
+     *
+     * @param id The id of the score to delete
+     */
+    void deleteScoreById(Long id);
 }

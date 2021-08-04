@@ -23,7 +23,7 @@ public class Part {
     @Column(name = "file_url", nullable = false)
     private String fileUrl;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
     @JoinColumn(name = "instrument_id", nullable = false)
     private Instrument instrument;
 

@@ -63,4 +63,14 @@ public class ScoreServiceImpl implements ScoreService {
     public List<Score> findScoresByUser(String uuid) {
         return scoreRepository.findByAppUser_UuidEquals(uuid);
     }
+
+    /**
+     * Method to delete a score by its id
+     *
+     * @param id The id of the score to delete
+     */
+    @Override
+    public void deleteScoreById(Long id) {
+        scoreRepository.deleteById(id);
+    }
 }

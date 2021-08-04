@@ -37,11 +37,11 @@ public class Score {
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "composer_id")
     private Person composer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "arranger_id")
     private Person arranger;
 

@@ -29,4 +29,19 @@ public class ScoreController {
     public ResponseEntity<Score> updateScore(@RequestBody Score score) {
         return new ResponseEntity<>(scoreService.updateScore(score), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/user/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Score>> fetchUserScores(@PathVariable String uuid) {
+        return new ResponseEntity<>(scoreService.findScoresByUser(uuid), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> deleteScore(@PathVariable Long id) {
+        try {
+            scoreService.deleteScoreById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
